@@ -33,7 +33,7 @@ $siswa = mysqli_fetch_assoc($query);
 
     <div class="container-fluid content flex-grow-1 d-flex flex-column justify-content-center">
         <header class="text-center mt-4">
-            <h1>Add student</h1>
+            <h1>Edit student</h1>
         </header>
 
         <section class="mb-4 d-flex flex-column align-items-center justify-content-center">

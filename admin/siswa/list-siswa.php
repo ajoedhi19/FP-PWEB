@@ -22,12 +22,20 @@ require_once("../../config.php");
 
     <div class="container-fluid content flex-grow-1 d-flex flex-column justify-content-center">
         <header class="text-center mt-4">
-            <h1>Add student</h1>
+            <h1>Student Management</h1>
         </header>
 
         <section class="mb-4 d-flex flex-column align-items-center justify-content-center">
             <article class="col-md-4 text-left">
-            <table class="table table-striped table-hover mt-2">
+                <div class="input-group">
+                    <div class="form-outline">
+                        <input type="search" id="search" placeholder="Search by NIS or Name" class="form-control" />
+                    </div>
+                    <button onclick="search(event);" class="btn btn-primary">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <table class="table table-striped table-hover mt-2">
                     <thead>
                         <tr class="table-dark">
                             <th scope="col">No</th>
@@ -43,6 +51,12 @@ require_once("../../config.php");
                     <tbody>
                         <?php
                         $sql = "SELECT * FROM students";
+
+                        if (isset($_GET['search'])) {
+                            $search = $_GET['search'];
+                            $sql .= " WHERE nis LIKE '%$search%' OR name LIKE '%$search%'";
+                        }
+
                         $query = mysqli_query($conn, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
@@ -74,16 +88,24 @@ require_once("../../config.php");
             if ($_GET['status'] == 'gagal' && isset($_GET['msg'])) {
                 echo "<p class=\"text-danger text-center\">$_GET[msg]</p>";
             } else if ($_GET['status'] == 'berhasil') {
-                if(isset($_GET['msg'])) {
+                if (isset($_GET['msg'])) {
                     echo "<p class=\"text-success text-center\">$_GET[msg]</p>";
                 } else {
                     echo "<p class=\"text-success text-center\">Succesfully changed student</p>";
                 }
             }
         }
-        ?>                
+        ?>
     </div>
 
 </body>
+
+<script>
+    function search(e) {
+        e.preventDefault();
+        const search = document.getElementById('search').value;
+        window.location.href = "list-siswa.php?search=" + search;
+    }
+</script>
 
 </html>
