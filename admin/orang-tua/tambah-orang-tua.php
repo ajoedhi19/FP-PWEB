@@ -107,6 +107,7 @@ require_once("../../config.php");
             }
         }
 
+        alert('Data anak tidak valid');
         return false;
     }
 </script>

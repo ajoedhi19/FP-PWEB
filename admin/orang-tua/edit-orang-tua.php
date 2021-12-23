@@ -132,6 +132,7 @@ $ortu = mysqli_fetch_assoc($query);
             }
         }
 
+        alert('Data anak tidak valid');
         return false;
     }
 </script>
