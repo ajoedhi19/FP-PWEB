@@ -35,6 +35,7 @@ require_once('../check-login.php');
                     <p class="m-0 mt-3">Parents List</p>
                 </a>
             </article>
+            <a class="btn btn-primary" href="../index.php">Back</a>
         </section>
 
         <?php
