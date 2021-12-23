@@ -19,6 +19,7 @@ if (isset($_POST['login'])) {
     if (password_verify($password, $user["password"])) {
         session_start();
         $_SESSION['username'] = $user['username'];
+        $_SESSION['role'] = $user['role'];
         header("Location: ./admin/index.php");
     } else {
         header("Location: index.php?status=gagal&msg=Password%20salah");
