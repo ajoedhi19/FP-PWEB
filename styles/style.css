@@ -23,10 +23,6 @@ body {
   background-color: var(--light-purple);
 }
 
-.btn {
-  margin-top: 50px;
-}
-
 .btn-icon {
   font-size: 3em;
 }
