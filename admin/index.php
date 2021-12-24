@@ -37,10 +37,14 @@ require_once "check-login.php"; ?>
                 <p class="m-0 mt-3">Parent</p>
             </a>
         </section>
-
+        
+        <footer class="mt-5">
+        
+        </footer>
 
     </div>
 
+    
 </body>
 
 </html>

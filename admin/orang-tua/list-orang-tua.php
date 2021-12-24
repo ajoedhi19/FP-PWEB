@@ -21,7 +21,7 @@ require_once "../../config.php";
 <body class="bg-light text-dark d-flex flex-column">
   <a class="btn btn-primary top-left" href="./index.php"><i class="fas fa-arrow-left"></i>Back</a>
 
-  <div class="container-fluid content flex-grow-1 d-flex flex-column justify-content-center">
+  <div class="container-fluid content flex-grow-1 d-flex flex-column justify-content-center mt-5">
     <header class="text-center mt-4">
       <h1>Parent Management</h1>
     </header>
@@ -98,6 +98,10 @@ require_once "../../config.php";
         }
       } ?>
     </div>
+
+    <footer class="mt-5 mb-5 d-flex justify-content-center align-items-center">
+      <h1>Goes To School</h1>
+    </footer>
   </div>
 
 </body>

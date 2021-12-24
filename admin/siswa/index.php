@@ -21,7 +21,7 @@ require_once "../check-login.php"; ?>
         <h1>Student Page 🏃‍♂️🏃‍♀️</h1>
     </header>
 
-    <div class="container-fluid content flex-grow-1 d-flex flex-column justify-content-center">
+    <div class="container-fluid content flex-grow-1 d-flex flex-column justify-content-center ">
 
         <section class="mb-4 d-flex flex-row align-items-center justify-content-center gap-32">
             <a href="./tambah-siswa.php" class="btn btn-primary bg-trans flex px-5 py-4">
@@ -45,6 +45,10 @@ require_once "../check-login.php"; ?>
         </div>
 
         <a class="btn btn-primary btn-bottom-left" href="../index.php"><i class="fas fa-arrow-left"></i>Back</a>
+
+        <footer class="mt-5 mb-5 d-flex justify-content-center align-items-center">
+            <h1>Goes To School</h1>
+        </footer>
     </div>
 
 </body>

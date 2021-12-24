@@ -35,7 +35,7 @@ $siswa = mysqli_fetch_assoc($query);
         <h1>Edit student</h1>
     </header>
 
-    <div class="container-fluid content flex-grow-1 d-flex flex-column justify-content-center">
+    <div class="container-fluid content flex-grow-1 d-flex flex-column justify-content-center  mt-5">
         <section class="mb-4 d-flex flex-column align-items-center justify-content-center">
             <article class="col-md-6 text-left">
                 <form class="d-flex justify-content-between" action="proses-edit-siswa.php" onsubmit="return validateForm();" method="POST" enctype="multipart/form-data">
@@ -106,6 +106,10 @@ $siswa = mysqli_fetch_assoc($query);
         </section>
 
         <a class="btn btn-primary btn-bottom-left" href="./list-siswa.php"><i class="fas fa-arrow-left"></i>Back</a>
+
+        <footer class="mt-5 mb-5 d-flex justify-content-center align-items-center">
+            <h1>Goes To School</h1>
+        </footer>
     </div>
 
 </body>

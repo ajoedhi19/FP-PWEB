@@ -93,3 +93,14 @@ body {
 .form-buttons {
   text-align: right;
 }
+
+.container-fluid{
+  padding: 0 !important;
+}
+
+footer {
+  background-color: #293150;
+  min-height: 75px;
+  width: 100%;
+  color: #E9BABA !important;
+}

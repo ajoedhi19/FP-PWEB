@@ -123,8 +123,10 @@ $ortu = mysqli_fetch_assoc($query);
       </article>
     </section>
     <a class="btn btn-primary btn-bottom-left" href="./list-orang-tua.php"><i class="fas fa-arrow-left"></i>Back</a>
-
-
+    
+    <footer class="mt-5 mb-5 d-flex justify-content-center align-items-center">
+      <h1>Goes To School</h1>
+    </footer>
   </div>
 
 </body>
