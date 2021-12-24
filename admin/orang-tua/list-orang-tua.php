@@ -1,6 +1,6 @@
 <?php
-require_once('../check-login.php');
-require_once("../../config.php");
+require_once "../check-login.php";
+require_once "../../config.php";
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@ require_once("../../config.php");
         </header>
 
         <section class="mb-4 d-flex flex-column align-items-center justify-content-center">
-            <article class="col-md-4 text-left">
+            <article class="col-md-8 text-left">
                 <div class="input-group">
                     <div class="form-outline">
                         <input type="search" id="search" placeholder="Search by Name" class="form-control" />
@@ -52,29 +52,31 @@ require_once("../../config.php");
                         <?php
                         $sql = "SELECT * FROM parents";
 
-                        if (isset($_GET['search'])) {
-                            $search = $_GET['search'];
-                            $sql .= " WHERE name LIKE '%$search%'";
+                        if (isset($_GET["search"])) {
+                          $search = $_GET["search"];
+                          $sql .= " WHERE name LIKE '%$search%'";
                         }
 
                         $query = mysqli_query($conn, $sql);
 
                         while ($ortu = mysqli_fetch_array($query)) {
-                            echo "<tr>";
+                          echo "<tr>";
 
-                            echo "<td>" . $ortu['id'] . "</td>";
-                            echo "<td>" . $ortu['parent_of'] . "</td>";
-                            echo "<td>" . $ortu['name'] . "</td>";
-                            echo "<td>" . $ortu['gender'] . "</td>";
-                            echo "<td>" . $ortu['date_of_birth'] . "</td>";
-                            echo "<td>" . $ortu['address'] . "</td>";
-                            echo "<td>" . $ortu['phone_number'] . "</td>";
+                          echo "<td>" . $ortu["id"] . "</td>";
+                          echo "<td>" . $ortu["parent_of"] . "</td>";
+                          echo "<td>" . $ortu["name"] . "</td>";
+                          echo "<td>" . $ortu["gender"] . "</td>";
+                          echo "<td>" . $ortu["date_of_birth"] . "</td>";
+                          echo "<td>" . $ortu["address"] . "</td>";
+                          echo "<td>" . $ortu["phone_number"] . "</td>";
 
-                            echo "<td>";
-                            echo "<a class=\"btn btn-sm btn-warning\" href='edit-orang-tua.php?id=" . $ortu['id'] . "'><i class=\"fas fa-pencil-alt\"></i></a> ";
-                            echo "</td>";
+                          echo "<td>";
+                          echo "<a class=\"btn btn-sm btn-warning\" href='edit-orang-tua.php?id=" .
+                            $ortu["id"] .
+                            "'><i class=\"fas fa-pencil-alt\"></i></a> ";
+                          echo "</td>";
 
-                            echo "</tr>";
+                          echo "</tr>";
                         }
                         ?>
                     </tbody>
@@ -82,20 +84,20 @@ require_once("../../config.php");
             </article>
             <a class="btn btn-primary" href="./index.php">Back</a>
         </section>
+        <div class="d-flex justify-content-center">
 
-        <?php
-        if (isset($_GET['status'])) {
-            if ($_GET['status'] == 'gagal' && isset($_GET['msg'])) {
-                echo "<p class=\"text-danger text-center\">$_GET[msg]</p>";
-            } else if ($_GET['status'] == 'berhasil') {
-                if (isset($_GET['msg'])) {
-                    echo "<p class=\"text-success text-center\">$_GET[msg]</p>";
-                } else {
-                    echo "<p class=\"text-success text-center\">Succesfully changed parent</p>";
-                }
+          <?php if (isset($_GET["status"])) {
+            if ($_GET["status"] == "gagal" && isset($_GET["msg"])) {
+              echo "<div class=\"alert w-50 alert-danger px-3 text-center\" role=\"alert\">$_GET[msg]</div>";
+            } elseif ($_GET["status"] == "berhasil") {
+              if (isset($_GET["msg"])) {
+                echo "<div class=\"alert w-50 alert-success px-3 text-center\" role=\"alert\">$_GET[msg]</div>";
+              } else {
+                echo "<div class=\"alert w-50 alert-success px-3 text-center\" role=\"alert\">Succesfully changed parent</div>";
+              }
             }
-        }
-        ?>
+          } ?>
+        </div>
     </div>
 
 </body>

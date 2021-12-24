@@ -1,6 +1,6 @@
 <?php
-require_once('../check-login.php');
-require_once("../../config.php");
+require_once "../check-login.php";
+require_once "../../config.php";
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@ require_once("../../config.php");
         </header>
 
         <section class="mb-4 d-flex flex-column align-items-center justify-content-center">
-            <article class="col-md-4 text-left">
+            <article class="col-md-6 text-left">
                 <form action="proses-tambah-orang-tua.php" onsubmit="return submitForm()" method="POST">
                     <div class="form-group my-2">
                         <label for="parent_of_suggestion" class="form-label">Parent Of</label>
@@ -37,7 +37,7 @@ require_once("../../config.php");
                         $query = mysqli_query($conn, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
-                            echo "<option data-value='$siswa[id]'>$siswa[nis] - $siswa[name]</option>";
+                          echo "<option data-value='$siswa[id]'>$siswa[nis] - $siswa[name]</option>";
                         }
                         ?>
                         </datalist>
@@ -82,7 +82,7 @@ require_once("../../config.php");
                     </div>
 
                     <div class="form-group my-3">
-                        <input class="btn btn-primary" type="submit" value="Add" name="add" />
+                        <input class="btn btn-success" type="submit" value="Add" name="add" />
                     </div>
 
                 </form>

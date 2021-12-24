@@ -1,6 +1,5 @@
 <?php
-require_once('../check-login.php');
-?>
+require_once "../check-login.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,33 +19,32 @@ require_once('../check-login.php');
 <body class="bg-light-purple text-dark d-flex flex-column">
 
     <div class="container-fluid content flex-grow-1 d-flex flex-column justify-content-center">
-        <header class="text-center mt-4">
-            <h1>Student Page</h1>
+        <header class="text-center mb-3 text-primary ">
+            <h1>Student Page 🏃‍♂️🏃‍♀️</h1>
         </header>
-
-        <section class="mb-4 d-flex flex-column align-items-center justify-content-center">
-            <article class="col-md-4 text-center">
-                <a href="./tambah-siswa.php" class="btn btn-primary flex">
+         <section class="mb-4 d-flex flex-row align-items-center justify-content-center gap-32">
+                <a href="./tambah-siswa.php" class="btn btn-primary flexflex px-5 py-4">
                     <i class="fas fa-user-plus btn-icon"></i>
                     <p class="m-0 mt-3">Add Student</p>
                 </a>
-                <a href="./list-siswa.php" class="btn btn-primary flex">
+                <a href="./list-siswa.php" class="btn btn-primary flex px-5 py-4">
                     <i class="fas fa-clipboard-list btn-icon"></i>
                     <p class="m-0 mt-3">Students List</p>
                 </a>
-            </article>
-            <a class="btn btn-primary" href="../index.php">Back</a>
-        </section>
+            </section>
+            <div class="d-flex align-items-center justify-content-center">
+                <a class="btn btn-primary " href="../index.php">Back</a>
+            </div>
 
-        <?php
-        if (isset($_GET['status'])) {
-            if ($_GET['status'] == 'gagal' && isset($_GET['msg'])) {
-                echo "<p class=\"text-danger text-center\">$_GET[msg]</p>";
-            } else if ($_GET['status'] == 'berhasil') {
-                echo "<p class=\"text-success text-center\">Succesfully added student</p>";
-            }
-        }
-        ?>
+            <div class="d-flex justify-content-center">
+                <?php if (isset($_GET["status"])) {
+                  if ($_GET["status"] == "gagal" && isset($_GET["msg"])) {
+                    echo "<div class=\"alert w-50 alert-danger px-3 mt-3 text-center\" role=\"alert\">$_GET[msg]</div>";
+                  } elseif ($_GET["status"] == "berhasil") {
+                    echo "<div class=\"alert w-50 alert-success px-3 mt-3 text-center\" role=\"alert\">Succesfully added student</sp>";
+                  }
+                } ?>
+            </div>
     </div>
 
 </body>

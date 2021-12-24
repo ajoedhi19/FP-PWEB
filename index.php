@@ -13,34 +13,39 @@
 
 <body class="bg-light-purple text-dark d-flex flex-column">
     <div class="container-fluid content flex-grow-1 d-flex flex-column justify-content-center">
-        <header class="text-center mt-4">
-            <h1>Goes to School</h1>
-        </header>
 
-        <section class="mb-4 d-flex flex-column align-items-center justify-content-center">
-            <article class="col-md-2 text-left">
+        <section class="mb-3 d-flex flex-column align-items-center justify-content-center">
+        <div class="card w-25">
+            <div class="card-header">
+               <h5 class="my-2">Login</h5>
+            </div>
+        <div class="card-body">
                 <form action="proses-login.php" method="POST" enctype="multipart/form-data">
-                    <div class="form-group my-2">
-                        <label for="username">Username</label>
-                        <input type="text" name="username" class="form-control rounded" placeholder="Username" required />
+                    <div class="form-group my-2 ">
+                        <label  class="mb-1" for="username">Username</label>
+                        <input type="text" name="username" class="form-control bg-white rounded" placeholder="Username" required />
                     </div>
 
                     <div class="form-group my-2">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control rounded" placeholder="Password" required />
+                        <label  class="mb-1" for="password">Password</label>
+                        <input type="password" name="password" class="form-control bg-white rounded" placeholder="Password" required />
                     </div>
 
-                    <div class="form-group my-3 text-center">
+                    <div class="form-group my-3 d-flex justify-content-end">
                         <input class="btn btn-primary" type="submit" value="Login" name="login" />
                     </div>
                 </form>
-            </article>
             
-            <?php
-            if (isset($_GET['status']) && $_GET['status'] == 'gagal' && isset($_GET['msg'])) {
-                echo "<p class=\"text-danger text-center\">$_GET[msg]</p>";
-            }
-            ?>
+            <?php if (
+              isset($_GET["status"]) &&
+              $_GET["status"] == "gagal" &&
+              isset($_GET["msg"])
+            ) {
+              echo "<p class=\"text-danger text-center\">$_GET[msg]</p>";
+            } ?>
+        </div>
+        </div>
+            
         </section>
 
 

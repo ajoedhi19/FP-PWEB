@@ -1,14 +1,14 @@
 <?php
-require_once('../check-login.php');
-require_once("../../config.php");
+require_once "../check-login.php";
+require_once "../../config.php";
 
-$id = $_GET['id'];
+$id = $_GET["id"];
 
 $sql = "SELECT * FROM students WHERE id=$id";
 $query = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($query) < 1) {
-    header('Location: list-siswa.php?status=gagal&msg=Data%20tidak%20ditemukan');
+  header("Location: list-siswa.php?status=gagal&msg=Data%20tidak%20ditemukan");
 }
 
 $siswa = mysqli_fetch_assoc($query);
@@ -37,29 +37,39 @@ $siswa = mysqli_fetch_assoc($query);
         </header>
 
         <section class="mb-4 d-flex flex-column align-items-center justify-content-center">
-            <article class="col-md-4 text-left">
+            <article class="col-md-6 text-left">
                 <form action="proses-edit-siswa.php" onsubmit="return validateForm();" method="POST" enctype="multipart/form-data">
                     <div class="form-group my-2">
                         <label for="nis">NIS</label>
-                        <input type="text" name="nis" id="nis" class="form-control rounded" placeholder="NIS" value="<?php echo $siswa['nis'] ?>" required />
+                        <input type="text" name="nis" id="nis" class="form-control rounded" placeholder="NIS" value="<?php echo $siswa[
+                          "nis"
+                        ]; ?>" required />
                     </div>
 
                     <div class="form-group my-2">
                         <label for="name">Name</label>
-                        <input type="text" name="name" class="form-control rounded" placeholder="Name" value="<?php echo $siswa['name'] ?>" required />
+                        <input type="text" name="name" class="form-control rounded" placeholder="Name" value="<?php echo $siswa[
+                          "name"
+                        ]; ?>" required />
                     </div>
 
                     <div class="form-group my-2">
-                        <?php $jk = $siswa['gender']; ?>
+                        <?php $jk = $siswa["gender"]; ?>
                         <label for="gender">Gender</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gender" id="gender1" value="laki-laki" <?php echo ($jk == 'laki-laki') ? "checked" : "" ?> required>
+                            <input class="form-check-input" type="radio" name="gender" id="gender1" value="laki-laki" <?php echo $jk ==
+                            "laki-laki"
+                              ? "checked"
+                              : ""; ?> required>
                             <label class="form-check-label" for="gender">
                                 Laki-laki
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gender" id="gender2" value="perempuan" <?php echo ($jk == 'perempuan') ? "checked" : "" ?> required>
+                            <input class="form-check-input" type="radio" name="gender" id="gender2" value="perempuan" <?php echo $jk ==
+                            "perempuan"
+                              ? "checked"
+                              : ""; ?> required>
                             <label class="form-check-label" for="gender">
                                 Perempuan
                             </label>
@@ -68,27 +78,37 @@ $siswa = mysqli_fetch_assoc($query);
 
                     <div class="form-group my-2">
                         <label for="date_of_birth">Date of Birth</label>
-                        <input class="form-control" type="date" name="date_of_birth" placeholder="Date of Birth" value="<?php echo $siswa['date_of_birth'] ?>" required></input>
+                        <input class="form-control" type="date" name="date_of_birth" placeholder="Date of Birth" value="<?php echo $siswa[
+                          "date_of_birth"
+                        ]; ?>" required></input>
                     </div>
 
                     <div class="form-group my-2">
                         <label for="address">Address</label>
-                        <textarea name="address" class="form-control" placeholder="Address" style="width: 100%; height: 150px" required><?php echo $siswa['address'] ?></textarea>
+                        <textarea name="address" class="form-control" placeholder="Address" style="width: 100%; height: 150px" required><?php echo $siswa[
+                          "address"
+                        ]; ?></textarea>
                     </div>
 
                     <div class="form-group my-2">
                         <label for="photo" class="form-label">Photo</label>
                         <div>
-                            <img id="preview_photo" width="100px" src="<?php echo $siswa["photo"] ?>" alt="preview" />
-                            <input class="form-control" type="file" name="photo" id="photo" onchange="PreviewImage();">
+                            <img id="preview_photo" width="100px" src="<?php echo $siswa[
+                              "photo"
+                            ]; ?>" alt="preview" />
+                            <input class="form-control mt-2" type="file" name="photo" id="photo" onchange="PreviewImage();">
                         </div>
                     </div>
 
-                    <input type="hidden" name="id" value="<?php echo $siswa['id'] ?>" required/>
+                    <input type="hidden" name="id" value="<?php echo $siswa[
+                      "id"
+                    ]; ?>" required/>
 
                     <div class="form-group my-3">
                         <input class="btn btn-primary" type="submit" value="Save" name="save" />
-                        <a class="btn btn-danger" href="proses-hapus-siswa.php?id=<?php echo $siswa['id'] ?>">Delete</a>
+                        <a class="btn btn-danger" href="proses-hapus-siswa.php?id=<?php echo $siswa[
+                          "id"
+                        ]; ?>">Delete</a>
                     </div>
 
                 </form>

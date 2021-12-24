@@ -1,18 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
 :root {
-    --light-purple: #9799CE;
+  --light-purple: #9799ce;
 }
 
 body {
-    min-height: 100vh;
-    padding: 0;
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  color: #2d3436 !important;
 }
 
 .bg-light-purple {
-    background-color: var(--light-purple);
+  background-color: var(--light-purple);
 }
 
 .btn-icon {
-    font-size: 3em;
+  font-size: 3em;
+}
+.text-primary {
+  color: #2d3436 !important;
+}
+.btn-primary,
+.btn-primary:visited {
+  background-color: #74b9ff !important;
+  border: none;
+  box-sizing: border-box;
+}
+.btn-primary:hover,
+.btn-primary:active {
+  transition: all 1s ease-out;
+  background-color: #0984e3 !important;
+}
+.gap-32 {
+  gap: 30px;
+}
+.bg-primary {
+  background-color: #74b9ff !important;
+}
+.bg-white {
+  background-color: #dfe6e9 !important;
+}
+.bg-grey {
+  background-color: #b2bec3 !important;
 }

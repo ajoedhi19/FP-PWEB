@@ -1,6 +1,6 @@
 <?php
-require_once('../check-login.php');
-require_once("../../config.php");
+require_once "../check-login.php";
+require_once "../../config.php";
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +26,7 @@ require_once("../../config.php");
         </header>
 
         <section class="mb-4 d-flex flex-column align-items-center justify-content-center">
-            <article class="col-md-4 text-left">
+            <article class="col-md-8 text-left">
                 <div class="input-group">
                     <div class="form-outline">
                         <input type="search" id="search" placeholder="Search by NIS or Name" class="form-control" />
@@ -52,29 +52,33 @@ require_once("../../config.php");
                         <?php
                         $sql = "SELECT * FROM students";
 
-                        if (isset($_GET['search'])) {
-                            $search = $_GET['search'];
-                            $sql .= " WHERE nis LIKE '%$search%' OR name LIKE '%$search%'";
+                        if (isset($_GET["search"])) {
+                          $search = $_GET["search"];
+                          $sql .= " WHERE nis LIKE '%$search%' OR name LIKE '%$search%'";
                         }
 
                         $query = mysqli_query($conn, $sql);
 
                         while ($siswa = mysqli_fetch_array($query)) {
-                            echo "<tr>";
+                          echo "<tr>";
 
-                            echo "<td>" . $siswa['id'] . "</td>";
-                            echo "<td><img src='" . $siswa['photo'] . "' width='100' height='100' /></td>";
-                            echo "<td>" . $siswa['nis'] . "</td>";
-                            echo "<td>" . $siswa['name'] . "</td>";
-                            echo "<td>" . $siswa['gender'] . "</td>";
-                            echo "<td>" . $siswa['date_of_birth'] . "</td>";
-                            echo "<td>" . $siswa['address'] . "</td>";
+                          echo "<td>" . $siswa["id"] . "</td>";
+                          echo "<td><img src='" .
+                            $siswa["photo"] .
+                            "' width='100' height='100' /></td>";
+                          echo "<td>" . $siswa["nis"] . "</td>";
+                          echo "<td>" . $siswa["name"] . "</td>";
+                          echo "<td>" . $siswa["gender"] . "</td>";
+                          echo "<td>" . $siswa["date_of_birth"] . "</td>";
+                          echo "<td>" . $siswa["address"] . "</td>";
 
-                            echo "<td>";
-                            echo "<a class=\"btn btn-sm btn-warning\" href='edit-siswa.php?id=" . $siswa['id'] . "'><i class=\"fas fa-pencil-alt\"></i></a> ";
-                            echo "</td>";
+                          echo "<td>";
+                          echo "<a class=\"btn btn-sm btn-warning\" href='edit-siswa.php?id=" .
+                            $siswa["id"] .
+                            "'><i class=\"fas fa-pencil-alt\"></i></a> ";
+                          echo "</td>";
 
-                            echo "</tr>";
+                          echo "</tr>";
                         }
                         ?>
                     </tbody>
@@ -83,19 +87,19 @@ require_once("../../config.php");
             <a class="btn btn-primary" href="./index.php">Back</a>
         </section>
 
-        <?php
-        if (isset($_GET['status'])) {
-            if ($_GET['status'] == 'gagal' && isset($_GET['msg'])) {
-                echo "<p class=\"text-danger text-center\">$_GET[msg]</p>";
-            } else if ($_GET['status'] == 'berhasil') {
-                if (isset($_GET['msg'])) {
-                    echo "<p class=\"text-success text-center\">$_GET[msg]</p>";
-                } else {
-                    echo "<p class=\"text-success text-center\">Succesfully changed student</p>";
-                }
+        <div class="d-flex justify-content-center">
+          <?php if (isset($_GET["status"])) {
+            if ($_GET["status"] == "gagal" && isset($_GET["msg"])) {
+              echo "<div class=\"alert w-50 alert-danger px-3 text-center\" role=\"alert\">$_GET[msg]</div>";
+            } elseif ($_GET["status"] == "berhasil") {
+              if (isset($_GET["msg"])) {
+                echo "<div class=\"alert w-50 alert-success px-3 text-center\" role=\"alert\">$_GET[msg]</div>";
+              } else {
+                echo "<div class=\"alert w-50 alert-success px-3 text-center\" role=\"alert\">Succesfully changed student</div>";
+              }
             }
-        }
-        ?>
+          } ?>
+        </div>
     </div>
 
 </body>

@@ -1,6 +1,5 @@
 <?php
-require_once('../check-login.php');
-?>
+require_once "../check-login.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +24,7 @@ require_once('../check-login.php');
         </header>
 
         <section class="mb-4 d-flex flex-column align-items-center justify-content-center">
-            <article class="col-md-4 text-left">
+            <article class="col-md-6 text-left">
                 <form action="proses-tambah-siswa.php" onsubmit="return validateForm();" method="POST" enctype="multipart/form-data">
                     <div class="form-group my-2">
                         <label for="nis">NIS</label>
@@ -66,13 +65,13 @@ require_once('../check-login.php');
                     <div class="form-group my-2">
                         <label for="photo" class="form-label">Photo</label>
                         <div>
-                            <img id="preview_photo" width="100px" src="../../uploaded_images/default.jpg" alt="preview" />
+                            <img id="preview_photo" class="mb-2" width="100px" src="../../uploaded_images/default.jpg" alt="preview" />
                             <input class="form-control" type="file" name="photo" id="photo" onchange="PreviewImage();" required>
                         </div>
                     </div>
 
                     <div class="form-group my-3">
-                        <input class="btn btn-primary" type="submit" value="Add" name="add" />
+                        <input class="btn btn-success" type="submit" value="Add" name="add" />
                     </div>
 
                 </form>
