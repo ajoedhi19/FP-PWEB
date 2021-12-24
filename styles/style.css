@@ -11,13 +11,26 @@ body {
   color: #2d3436 !important;
 }
 
+.container {
+  background-color: white;
+  height: 400px;
+  width: 400px;
+  border: none;
+  border-radius: 10px;
+}
+
 .bg-light-purple {
   background-color: var(--light-purple);
+}
+
+.btn {
+  margin-top: 50px;
 }
 
 .btn-icon {
   font-size: 3em;
 }
+
 .text-primary {
   color: #2d3436 !important;
 }
