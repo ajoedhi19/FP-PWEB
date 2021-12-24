@@ -18,13 +18,12 @@ require_once "../../config.php";
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 
-<body class="bg-light-purple text-dark d-flex flex-column">
+<body class="bg-light text-dark d-flex flex-column">
+    <header class="text-center mt-4 title p-2 top-left">
+        <h1>Add parent</h1>
+    </header>
 
-    <div class="container-fluid content flex-grow-1 d-flex flex-column justify-content-center">
-        <header class="text-center mt-4">
-            <h1>Add parent</h1>
-        </header>
-
+    <div class="container-fluid content flex-grow-1 d-flex flex-column justify-content-center mt-5">
         <section class="mb-4 d-flex flex-column align-items-center justify-content-center">
             <article class="col-md-6 text-left">
                 <form action="proses-tambah-orang-tua.php" onsubmit="return submitForm()" method="POST">
@@ -32,14 +31,14 @@ require_once "../../config.php";
                         <label for="parent_of_suggestion" class="form-label">Parent Of</label>
                         <input class="form-control" list="parent_of_options" id="parent_of_suggestion" placeholder="Type to search by NIS or Name" required>
                         <datalist id="parent_of_options">
-                        <?php
-                        $sql = "SELECT * FROM students";
-                        $query = mysqli_query($conn, $sql);
+                            <?php
+                            $sql = "SELECT * FROM students";
+                            $query = mysqli_query($conn, $sql);
 
-                        while ($siswa = mysqli_fetch_array($query)) {
-                          echo "<option data-value='$siswa[id]'>$siswa[nis] - $siswa[name]</option>";
-                        }
-                        ?>
+                            while ($siswa = mysqli_fetch_array($query)) {
+                                echo "<option data-value='$siswa[id]'>$siswa[nis] - $siswa[name]</option>";
+                            }
+                            ?>
                         </datalist>
                     </div>
 
@@ -81,16 +80,15 @@ require_once "../../config.php";
                         <input class="form-control" type="tel" name="phone_number" placeholder="Phone Number" required></input>
                     </div>
 
-                    <div class="form-group my-3">
+                    <div class="form-group my-3 form-buttons">
                         <input class="btn btn-success" type="submit" value="Add" name="add" />
                     </div>
 
                 </form>
             </article>
-            <a class="btn btn-primary" href="./index.php">Back</a>
         </section>
-
-
+        <a class="btn btn-primary btn-bottom-left" href="./index.php"><i class="fas fa-arrow-left"></i>Back</a>
+        
     </div>
 
 </body>

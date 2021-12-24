@@ -16,70 +16,72 @@ require_once "../check-login.php"; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 
-<body class="bg-light-purple text-dark d-flex flex-column">
+<body class="bg-light text-dark d-flex flex-column">
+    <header class="text-center text-primary title p-2 top-left">
+        <h1>Add student</h1>
+    </header>
 
     <div class="container-fluid content flex-grow-1 d-flex flex-column justify-content-center">
-        <header class="text-center mt-4">
-            <h1>Add student</h1>
-        </header>
 
         <section class="mb-4 d-flex flex-column align-items-center justify-content-center">
             <article class="col-md-6 text-left">
-                <form action="proses-tambah-siswa.php" onsubmit="return validateForm();" method="POST" enctype="multipart/form-data">
-                    <div class="form-group my-2">
-                        <label for="nis">NIS</label>
-                        <input type="text" name="nis" id="nis" class="form-control rounded" placeholder="NIS" required />
-                    </div>
-
-                    <div class="form-group my-2">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" class="form-control rounded" placeholder="Name" required />
-                    </div>
-
-                    <div class="form-group my-2">
-                        <label for="gender">Gender</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gender" id="gender1" value="laki-laki" required>
-                            <label class="form-check-label" for="gender">
-                                Laki-laki
-                            </label>
+                <form class="d-flex justify-content-between" action="proses-tambah-siswa.php" onsubmit="return validateForm();" method="POST" enctype="multipart/form-data">
+                    <div class="col-3">
+                        <div class="form-group my-2">
+                            <label for="photo" class="form-label">Photo</label>
+                            <div>
+                                <img id="preview_photo" class="mb-2" width="100px" src="../../uploaded_images/default.jpg" alt="preview" />
+                                <input class="form-control" type="file" name="photo" id="photo" onchange="PreviewImage();" required>
+                            </div>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gender" id="gender2" value="perempuan" required>
-                            <label class="form-check-label" for="gender">
-                                Perempuan
-                            </label>
+
+                    </div>
+
+                    <div class="col-8">
+                        <div class="form-group my-2">
+                            <label for="nis">NIS</label>
+                            <input type="text" name="nis" id="nis" class="form-control rounded" placeholder="NIS" required />
+                        </div>
+
+                        <div class="form-group my-2">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" class="form-control rounded" placeholder="Name" required />
+                        </div>
+
+                        <div class="form-group my-2">
+                            <label for="gender">Gender</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="gender1" value="laki-laki" required>
+                                <label class="form-check-label" for="gender">
+                                    Laki-laki
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="gender2" value="perempuan" required>
+                                <label class="form-check-label" for="gender">
+                                    Perempuan
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group my-2">
+                            <label for="date_of_birth">Date of Birth</label>
+                            <input class="form-control" type="date" name="date_of_birth" placeholder="Date of Birth" required></input>
+                        </div>
+
+                        <div class="form-group my-2">
+                            <label for="address">Address</label>
+                            <textarea name="address" class="form-control" placeholder="Address" style="width: 100%; height: 150px" required></textarea>
+                        </div>
+
+                        <div class="form-group my-3 form-buttons">
+                            <input class="btn btn-success" type="submit" value="Add" name="add" />
                         </div>
                     </div>
-
-                    <div class="form-group my-2">
-                        <label for="date_of_birth">Date of Birth</label>
-                        <input class="form-control" type="date" name="date_of_birth" placeholder="Date of Birth" required></input>
-                    </div>
-
-                    <div class="form-group my-2">
-                        <label for="address">Address</label>
-                        <textarea name="address" class="form-control" placeholder="Address" style="width: 100%; height: 150px" required></textarea>
-                    </div>
-
-                    <div class="form-group my-2">
-                        <label for="photo" class="form-label">Photo</label>
-                        <div>
-                            <img id="preview_photo" class="mb-2" width="100px" src="../../uploaded_images/default.jpg" alt="preview" />
-                            <input class="form-control" type="file" name="photo" id="photo" onchange="PreviewImage();" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group my-3">
-                        <input class="btn btn-success" type="submit" value="Add" name="add" />
-                    </div>
-
                 </form>
             </article>
-            <a class="btn btn-primary" href="./index.php">Back</a>
         </section>
-
-
+        <a class="btn btn-primary btn-bottom-left" href="./index.php"><i class="fas fa-arrow-left"></i>Back</a>
     </div>
 
 </body>
@@ -97,12 +99,12 @@ require_once "../check-login.php"; ?>
     function validateForm() {
         const nis = document.getElementById("nis").value;
 
-        if(isNaN(nis)) {
+        if (isNaN(nis)) {
             alert("NIS harus angka");
             return false;
         }
 
-        if(nis.length != 5) {
+        if (nis.length != 5) {
             alert("NIS harus 5 character");
             return false;
         }
