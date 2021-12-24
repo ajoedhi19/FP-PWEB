@@ -105,7 +105,7 @@ $siswa = mysqli_fetch_assoc($query);
                     ]; ?>" required/>
 
                     <div class="form-group my-3">
-                        <input class="btn btn-primary" type="submit" value="Save" name="save" />
+                        <input class="btn btn-success" type="submit" value="Save" name="save" />
                         <a class="btn btn-danger" href="proses-hapus-siswa.php?id=<?php echo $siswa[
                           "id"
                         ]; ?>">Delete</a>
