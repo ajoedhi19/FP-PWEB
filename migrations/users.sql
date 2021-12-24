@@ -8,3 +8,6 @@ CREATE TABLE `users` (
 
 INSERT INTO `users`(`username`, `password`, `role`) 
 VALUES ('admin1', '$2y$10$srP/TFzKyrZ0oQQAwziucei5fy23fisWI7ID71EuH.H6KP6yILG.S', 'admin');
+
+INSERT INTO `users`(`username`, `password`, `role`) 
+VALUES ('student1', '$2y$10$srP/TFzKyrZ0oQQAwziucei5fy23fisWI7ID71EuH.H6KP6yILG.S', 'student');
